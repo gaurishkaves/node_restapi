@@ -34,9 +34,26 @@ Start server
 
 http://127.0.0.1:3000/
 
-## Todo
+### Code Style
+[![JavaScript Style Guide](https://cdn.rawgit.com/standard/standard/master/badge.svg)](https://github.com/standard/standard)
+
+``` 
+npx standard --fix 
+```
+
+## Project Structure
+
+### Components
+- Users
+- Pokemons
+- Auth
+
+
+
+### Todo
 
  1. Validations 
  2. Caching 
  3. Error logging 
  4. Check seed data before insert
+ 5. JWT expiry or blacklist
