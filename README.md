@@ -48,6 +48,22 @@ npx standard --fix
 - Pokemons
 - Auth
 
+### Demo 
+##### Login 
+POST - http://127.0.0.1:3000/login
+
+* email - test@jerry.com
+* passowrd - test123
+
+* You will receive a token
+
+##### Get Pokemon 
+GET - 127.0.0.1:3000/pokemon/
+* Header 
+* x-access-token - pass token value received from login request
+
+
+
 
 
 ### Todo
@@ -57,3 +73,4 @@ npx standard --fix
  3. Error logging 
  4. Check seed data before insert
  5. JWT expiry or blacklist
+ 6. Passing and inserting data as array for fields
