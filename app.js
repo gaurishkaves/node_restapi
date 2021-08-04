@@ -7,7 +7,7 @@ const logger = require('morgan')
 require('./config/mongodb')
 const bodyParser = require('body-parser')
 
-const indexRouter = require('./routes/index')
+/* const indexRouter = require('./routes/index') */
 const userRouter = require('./routes/user')
 const authRouter = require('./routes/auth')
 const pokemonRouter = require('./routes/pokemon')

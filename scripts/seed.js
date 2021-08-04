@@ -25,11 +25,17 @@ mongoose.connection.on('connected', () => {
       try {
         const model = require(path.join(modelpath, file))
         const seed = fs.readFileSync(path.join(seedpath, file), { encoding: 'utf8', flag: 'r' })
-        console.log(seed)
-        model.collection.insert(JSON.parse(seed), function (err, res) {
-          console.log(err)
-          console.log(res)
-        })
+        const parseData = JSON.parse(seed)
+
+        for (const a of parseData) {
+          const inserdata = await model.collection.findOne(a)
+          if (inserdata === null) {
+            model.collection.insertOne(a, function (err, res) {
+              console.log(err)
+              console.log(res)
+            })
+          }
+        }
       } catch (error) {
         console.log(error)
       }

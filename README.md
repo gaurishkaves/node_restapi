@@ -6,6 +6,9 @@ Rest API developed using
  3. MongoDB 
  4. Moongose 
  5. JWT
+ 6. Express - Validator
+ 7. Redis - Caching
+ 
 
 ## Setup
 Install dependencies
@@ -18,6 +21,8 @@ Create .env file in root folder and below details
     PORT=3000  
     MONGO_URL=mongodb://localhost:27017/pokemondb  
     SECRET="hellothisisajwtsecretstringvaluepleasechangeonproduction"
+    REDIS_HOST='127.0.0.1'
+    REDIS_PORT='6379'
 
 Create mongo collections
 
@@ -63,14 +68,15 @@ GET - 127.0.0.1:3000/pokemon/
 * x-access-token - pass token value received from login request
 
 
+##### API's
+GET /pokemon
+POST /pokemon
+GET /pokemon/:id
+PUT /pokemon/:id
+DELETE /pokemon/:id
 
 
 
-### Todo
 
- 1. Validations 
- 2. Caching 
- 3. Error logging 
- 4. Check seed data before insert
- 5. JWT expiry or blacklist
- 6. Passing and inserting data as array for fields
+
+

@@ -1,28 +1,54 @@
 const Pokemon = require('../../models/pokemons')
+const logger = require('../../utils/LogHandler')
 
 exports.getAllPokemon = async () => {
-  const pokemonData = await Pokemon.find()
-  return pokemonData
+  try {
+    const pokemonData = await Pokemon.find()
+    return pokemonData
+  } catch (e) {
+    logger.setLog('pokemon', 'error', 'getAllPokemon ' + e)
+    return false
+  }
 }
 
 exports.getPokemonByID = async (pokemonId) => {
-  const pokemonData = await Pokemon.findOne({ _id: pokemonId })
-  return pokemonData
+  try {
+    const pokemonData = await Pokemon.findOne({ _id: pokemonId })
+    return pokemonData
+  } catch (e) {
+    logger.setLog('pokemon', 'error', 'getPokemonByID ' + e)
+    return false
+  }
 }
 
-exports.savePokemon = async (pokemonId) => {
-  const pokemonData = await Pokemon.insert(data)
-  return pokemonData
+exports.savePokemon = async (data) => {
+  try {
+    const pokemonData = await Pokemon.create(data)
+    return pokemonData
+  } catch (e) {
+    logger.setLog('pokemon', 'error', 'savePokemon ' + e)
+    return false
+  }
 }
 
-exports.savePokemon = async (pokemonId, data) => {
-  const pokemonData = await Pokemon.findOneAndUpdate({ _id: pokemonId }, data, {
-    returnOriginal: false
-  })
-  return pokemonData
+exports.updatePokemon = async (pokemonId, data) => {
+  try {
+    const pokemonData = await Pokemon.findOneAndUpdate({ _id: pokemonId }, data, {
+      returnOriginal: false
+    })
+    return pokemonData
+  } catch (e) {
+    logger.setLog('pokemon', 'error', 'updatePokemon ' + e)
+    return false
+  }
 }
 
 exports.deletePokemon = async (pokemonId) => {
-  const pokemonData = await Pokemon.destroy({ where: { user_id: pokemonId } })
-  return pokemonData
+  try {
+    const pokemonData = await Pokemon.deleteOne({ _id: pokemonId })
+    return pokemonData
+  } catch (e) {
+    logger.setLog('pokemon', 'error', 'deletePokemon ' + e)
+    return false
+  }
 }
