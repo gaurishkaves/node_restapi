@@ -28,6 +28,6 @@ exports.updateUser = async (userId, data) => {
 }
 
 exports.deleteUser = async (userId) => {
-  const userData = await User.destroy({ where: { user_id: userId } })
+  const userData = await User.deleteOne({ _id: userId } )
   return userData
 }

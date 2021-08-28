@@ -14,6 +14,7 @@ Rest API developed using
 Install dependencies
 
     npm install
+    npm install --dev
 
 Create .env file in root folder and below details
 
@@ -69,11 +70,26 @@ GET - 127.0.0.1:3000/pokemon/
 
 
 ##### API's
-GET /pokemon
-POST /pokemon
-GET /pokemon/:id
-PUT /pokemon/:id
-DELETE /pokemon/:id
+* GET /pokemon
+* POST /pokemon
+* GET /pokemon/:id
+* PUT /pokemon/:id
+* DELETE /pokemon/:id
+
+
+##### Test
+```
+mocha testcases/users.js
+
+mocha 
+
+```
+
+#### Coverage Test
+```
+    npm test
+```
+
 
 
 

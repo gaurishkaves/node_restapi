@@ -2,12 +2,13 @@ const userDataAccess = require('./user.dal')
 const bcrypt = require('bcryptjs')
 
 exports.getAllUser = async (req, res, next) => {
+   const userData = await userDataAccess.getAllUser()
   return res.send(userData)
 }
 
 exports.getUser = async (req, res, next) => {
   const userId = req.params.id
-  console.log(userId)
+
   if (!userId) { return res.status(400).send('Invalid User id !') }
   const userData = await userDataAccess.getUserByID(userId)
   if (!userData) {
@@ -42,17 +43,17 @@ exports.updateUser = async (req, res, next) => {
   if (!userId) { return res.status(400).send('Invalid User id !') }
   const userData = await userDataAccess.updateUser(userId, data)
 
-  if (userData == 0) {
+  if (userData == null) {
     return res.status(404).send('User not update found !')
   } else {
-    console.log(userData)
+
     return res.send(userData)
   }
 }
 
 exports.deleteUser = async (req, res, next) => {
   const userId = req.params.id
-  if (isNaN(userId)) { return res.status(400).send('Invalid User id !') }
+  if (!userId) { return res.status(400).send('Invalid User id !') }
   const userData = await userDataAccess.deleteUser(userId)
 
   if (!userData) {
