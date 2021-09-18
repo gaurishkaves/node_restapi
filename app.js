@@ -12,6 +12,8 @@ const userRouter = require('./routes/user')
 const authRouter = require('./routes/auth')
 const pokemonRouter = require('./routes/pokemon')
 
+
+
 const app = express()
 
 // view engine setup
