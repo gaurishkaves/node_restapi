@@ -14,6 +14,7 @@ exports.getAllPokemon = async (req, res, next) => {
 }
 
 exports.getPokemon = async (req, res, next) => {
+
   const pokemonId = req.params.id
   if (!pokemonId) { return res.status(400).send('Invalid Pokemon id !') }
   const redisData = await redis.getRedisVariable('pokemon_' + pokemonId)
@@ -28,6 +29,7 @@ exports.getPokemon = async (req, res, next) => {
   } else {
     return res.send(redisData)
   }
+
 }
 
 exports.createPokemon = async (req, res, next) => {
